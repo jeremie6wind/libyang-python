@@ -11,6 +11,21 @@
     ]
   },
   "ietf-yang-library:yang-library": {
+    "module-set": [
+      {
+        "name": "complete",
+        "module": [
+          {
+            "name": "yang",
+            "revision": "2025-01-29",
+            "namespace": "urn:ietf:params:xml:ns:yang:1",
+            "location": [
+              "file://@internal"
+            ]
+          }
+        ]
+      }
+    ],
     "content-id": "321566"
   }
 }
