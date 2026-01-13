@@ -732,6 +732,9 @@ class LeafTest(unittest.TestCase):
     def test_leaf_default(self):
         leaf = next(self.ctx.find_path("/yolo-nodetypes:conf/percentage"))
         self.assertIsInstance(leaf.default(), float)
+        leaf = next(self.ctx.find_path("/yolo-nodetypes:conf/leafref1"))
+        self.assertIsInstance(leaf.default(), str)
+        self.assertEqual("ASD", leaf.default())
 
     def test_leaf_parsed(self):
         leaf = next(self.ctx.find_path("/yolo-nodetypes:conf/percentage"))
@@ -789,6 +792,9 @@ class LeafListTest(unittest.TestCase):
         leaflist = next(self.ctx.find_path("/yolo-nodetypes:conf/integers"))
         for d in leaflist.defaults():
             self.assertIsInstance(d, int)
+        leaflist3 = next(self.ctx.find_path("/yolo-nodetypes:conf/leaf-list3"))
+        for d in leaflist3.defaults():
+            self.assertIsInstance(d, str)
 
     def test_leaf_list_min_max(self):
         leaflist1 = next(self.ctx.find_path("/yolo-nodetypes:conf/leaf-list1"))

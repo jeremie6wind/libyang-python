@@ -1545,7 +1545,7 @@ class SLeaf(SNode):
                 val_type_cdata,
                 ffi.NULL,
             )
-            if ret != lib.LY_SUCCESS:
+            if ret not in (lib.LY_SUCCESS, lib.LY_EINCOMPLETE):
                 raise self.context.error("Unable to get real type of default value")
             self.cdata_default_realtype = Type(self.context, val_type_cdata[0], None)
 
@@ -1619,7 +1619,7 @@ class SLeafList(SNode):
                     val_type_cdata,
                     ffi.NULL,
                 )
-                if ret != lib.LY_SUCCESS:
+                if ret not in (lib.LY_SUCCESS, lib.LY_EINCOMPLETE):
                     raise self.context.error("Unable to get real type of default value")
                 self.cdata_default_realtypes.append(
                     Type(self.context, val_type_cdata[0], None)
