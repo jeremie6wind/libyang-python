@@ -93,6 +93,20 @@ module yolo-nodetypes {
     leaf-list leaf-list2 {
       type string;
     }
+
+    leaf leafref1 {
+      type leafref {
+        path "/records/name";
+      }
+      default "ASD";
+    }
+
+    leaf-list leaf-list3 {
+      type leafref {
+        path "/records/name";
+      }
+      default "ASD";
+    }
   }
 
   leaf test1 {
