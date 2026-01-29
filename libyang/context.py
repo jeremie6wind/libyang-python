@@ -262,7 +262,6 @@ class Context:
                 fmt = lib.LYD_JSON
             else:
                 fmt = lib.LYD_XML
-            print("steweg", search_path, yanglib_path, yanglib_fmt, options)
             ret = lib.ly_ctx_new_ylpath(
                 str2c(search_path), str2c(yanglib_path), fmt, options, ctx
             )
