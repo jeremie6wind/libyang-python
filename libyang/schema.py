@@ -110,6 +110,11 @@ class Module:
         for i in features_list:
             yield Feature(self.context, i)
 
+    def compiled_enabled_features(self) -> Iterator[str]:
+        if self.cdata.compiled:
+            for f in ly_array_iter(self.cdata.compiled.features):
+                yield c2str(f)
+
     def get_feature(self, name: str) -> "Feature":
         for f in self.features():
             if f.name() == name:
