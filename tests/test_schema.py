@@ -108,6 +108,11 @@ class ModuleTest(unittest.TestCase):
         features = list(self.module.features())
         self.assertEqual(len(features), 2)
 
+    def test_mod_compiled_enabled_features(self):
+        self.module.feature_enable("*")
+        features = list(self.module.compiled_enabled_features())
+        self.assertEqual(len(features), 2)
+
     def test_mod_get_feature(self):
         self.module.feature_enable("turbo-boost")
         feature = self.module.get_feature("turbo-boost")
