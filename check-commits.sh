@@ -104,7 +104,7 @@ for rev in $revisions; do
 		if [ -z "$value" ]; then
 			continue
 		fi
-		fixes_rev=$(echo "$value" | sed -En 's/([A-Fa-f0-9]{7,}[[:space:]]\(".*"\))/\1/p')
+		fixes_rev=$(echo "$value" | sed -En 's/([A-Fa-f0-9]{7,})[[:space:]]\(".*"\)/\1/p')
 		if ! git cat-file commit "$fixes_rev" >/dev/null; then
 			err "trailer '$value' does not refer to a known commit"
 		fi
